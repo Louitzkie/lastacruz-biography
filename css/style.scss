@@ -1,0 +1,290 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+:root {
+  --DarkBlue: hsl(233, 26%, 24%);
+  --grayishblue: hsl(233, 8%, 62%);
+  --primary-clr: #00c7fa;
+  --secondary-clr: orange;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+img {
+  display: inline-block;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+ul,
+li {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+}
+
+body {
+  line-height: 1.6;
+  font-weight: 400;
+  font-family: "Poppins", serif;
+}
+
+.container {
+  max-width: 1440px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flow-content > * + * {
+  margin-top: 1rem;
+}
+
+section {
+  padding: 6em 0;
+}
+
+/* UTILITIES */
+
+.header {
+  padding: 1em 0;
+
+  .btn {
+    display: inline-block;
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+
+    &:active {
+      transform: scale(1.1);
+    }
+  }
+
+  .btn-open {
+    margin-left: auto;
+    position: absolute;
+    top: 2em;
+    right: 2em;
+    background-color: var(--DarkBlue);
+    color: #fff;
+  }
+
+  .btn-closed {
+    position: absolute;
+    top: 2em;
+    right: 2em;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .nav {
+    ul {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      list-style-type: none;
+      width: 50%;
+      min-height: 100vh;
+      background: var(--DarkBlue);
+      position: fixed;
+      top: 0;
+      right: 0;
+      transform: translateX(100%);
+      transition: all 250ms ease-out;
+      z-index: 100;
+
+      &.reveal {
+        transform: none;
+      }
+    }
+
+    li {
+      font-size: 1.125rem;
+    }
+
+    a {
+      color: #fff;
+    }
+  }
+}
+
+@media (min-width: 45em) {
+  .header {
+    .btn {
+      display: none;
+    }
+
+    .nav {
+      ul {
+        width: auto;
+        min-height: auto;
+        transform: initial;
+        background: none;
+        position: initial;
+        flex-direction: row;
+      }
+
+      li {
+        margin-left: 2em;
+      }
+
+      a {
+        color: var(--DarkBlue);
+      }
+    }
+  }
+}
+
+.hero {
+  .flexbox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .flex > * {
+    flex-basis: 100%;
+  }
+
+  @media (min-width: 45em) {
+    .flexbox {
+      flex-direction: row;
+    }
+  }
+
+  .hero__content {
+    max-width: 80ch;
+
+    h1 {
+      font-size: 3.5em;
+      line-height: 1.1;
+
+      span {
+        color: var(--primary-clr);
+      }
+    }
+
+    p {
+      color: var(--grayishblue);
+    }
+  }
+
+  .hero__img {
+    position: relative;
+
+    img {
+      border-radius: 0.3em;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -1rem;
+      right: -1rem;
+      width: 50%;
+      height: 50%;
+      z-index: -1;
+      border-radius: 0.3em;
+      background: var(--DarkBlue);
+    }
+  }
+
+  .social-media {
+    a {
+      transition: 250ms ease-out;
+
+      &:hover,
+      &:focus {
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+
+.about-me {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.8)),
+    url("../src/bg.jpg");
+  background-size: cover;
+  color: #fff;
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .title {
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -0.3rem;
+      left: 0;
+      width: 3rem;
+      height: 0.3rem;
+      background: #fff;
+    }
+  }
+}
+
+.project {
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1em;
+
+    .card {
+      background: #000;
+      color: #fff;
+      padding: 1em;
+      border-radius: 0.3em;
+
+      .btn {
+        padding: 0.5em 1em;
+        border: 1px solid transparent;
+        background: var(--primary-clr);
+        color: #fff;
+        border-radius: 0.3em;
+        transition: all 250ms ease-out;
+
+        &:hover,
+        &:focus {
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+}

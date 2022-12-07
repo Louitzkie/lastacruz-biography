@@ -1,0 +1,243 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+:root {
+  --DarkBlue: hsl(233, 26%, 24%);
+  --grayishblue: hsl(233, 8%, 62%);
+  --primary-clr: #00c7fa;
+  --secondary-clr: orange;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+img {
+  display: inline-block;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+ul,
+li {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+}
+
+body {
+  line-height: 1.6;
+  font-weight: 400;
+  font-family: "Poppins", serif;
+}
+
+.container {
+  max-width: 1440px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flow-content > * + * {
+  margin-top: 1rem;
+}
+
+section {
+  padding: 6em 0;
+}
+
+/* UTILITIES */
+.header {
+  padding: 1em 0;
+}
+.header .btn {
+  display: inline-block;
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.header .btn:active {
+  transform: scale(1.1);
+}
+.header .btn-open {
+  margin-left: auto;
+  position: absolute;
+  top: 2em;
+  right: 2em;
+  background-color: var(--DarkBlue);
+  color: #fff;
+}
+.header .btn-closed {
+  position: absolute;
+  top: 2em;
+  right: 2em;
+}
+.header .logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.header .nav ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  list-style-type: none;
+  width: 50%;
+  min-height: 100vh;
+  background: var(--DarkBlue);
+  position: fixed;
+  top: 0;
+  right: 0;
+  transform: translateX(100%);
+  transition: all 250ms ease-out;
+  z-index: 100;
+}
+.header .nav ul.reveal {
+  transform: none;
+}
+.header .nav li {
+  font-size: 1.125rem;
+}
+.header .nav a {
+  color: #fff;
+}
+
+@media (min-width: 45em) {
+  .header .btn {
+    display: none;
+  }
+  .header .nav ul {
+    width: auto;
+    min-height: auto;
+    transform: initial;
+    background: none;
+    position: initial;
+    flex-direction: row;
+  }
+  .header .nav li {
+    margin-left: 2em;
+  }
+  .header .nav a {
+    color: var(--DarkBlue);
+  }
+}
+.hero .flexbox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+.hero .flex > * {
+  flex-basis: 100%;
+}
+@media (min-width: 45em) {
+  .hero .flexbox {
+    flex-direction: row;
+  }
+}
+.hero .hero__content {
+  max-width: 80ch;
+}
+.hero .hero__content h1 {
+  font-size: 3.5em;
+  line-height: 1.1;
+}
+.hero .hero__content h1 span {
+  color: var(--primary-clr);
+}
+.hero .hero__content p {
+  color: var(--grayishblue);
+}
+.hero .hero__img {
+  position: relative;
+}
+.hero .hero__img img {
+  border-radius: 0.3em;
+}
+.hero .hero__img::before {
+  content: "";
+  position: absolute;
+  top: -1rem;
+  right: -1rem;
+  width: 50%;
+  height: 50%;
+  z-index: -1;
+  border-radius: 0.3em;
+  background: var(--DarkBlue);
+}
+.hero .social-media a {
+  transition: 250ms ease-out;
+}
+.hero .social-media a:hover, .hero .social-media a:focus {
+  transform: scale(1.1);
+}
+
+.about-me {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.8)), url("../src/bg.jpg");
+  background-size: cover;
+  color: #fff;
+}
+.about-me .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+.about-me .title {
+  position: relative;
+}
+.about-me .title::after {
+  content: "";
+  position: absolute;
+  bottom: -0.3rem;
+  left: 0;
+  width: 3rem;
+  height: 0.3rem;
+  background: #fff;
+}
+
+.project .cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1em;
+}
+.project .cards .card {
+  background: #000;
+  color: #fff;
+  padding: 1em;
+  border-radius: 0.3em;
+}
+.project .cards .card .btn {
+  padding: 0.5em 1em;
+  border: 1px solid transparent;
+  background: var(--primary-clr);
+  color: #fff;
+  border-radius: 0.3em;
+  transition: all 250ms ease-out;
+}
+.project .cards .card .btn:hover, .project .cards .card .btn:focus {
+  opacity: 0.8;
+}/*# sourceMappingURL=style.css.map */
